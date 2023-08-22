@@ -43,3 +43,9 @@ tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+configure<org.junit.platform.gradle.plugin.ExtensionConfig> {
+    reports {
+        junitXml.isEnabled = true
+        junitXml.destination = file("$buildDir/test-results/test")
+    }
+}
